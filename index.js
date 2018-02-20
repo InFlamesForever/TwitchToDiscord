@@ -6,32 +6,29 @@ module.exports = {
      * Returns true or false depending on whether the streamer is live
      *
      * @param clientID your twitch app client id
-     * @param user_login the users stream url extension eg: twitch.tv/inflamesforever
+     * @param streamerUsername the users stream url extension eg: twitch.tv/inflamesforever
      * @returns {Promise<Boolean>}
      */
-    isTwitchUserLive(clientID, user_login)
+    isTwitchUserLive(clientID, streamerUsername)
     {
-        return new Promise(
-            function (fulfill, reject)
+        return new Promise(function (fulfill, reject)
+        {
+            try
             {
-                try
+                request({
+                    headers: {
+                        'Client-ID': clientID
+                    }, uri: 'https://api.twitch.tv/helix/streams?user_login=' + streamerUsername, method: 'GET'
+                }, function (url, res, body)
                 {
-                    request({
-                        headers: {
-                            'Client-ID': clientID
-                        },
-                        uri: 'https://api.twitch.tv/helix/streams?user_login=' + user_login,
-                        method: 'GET'
-                    }, function (url, res, body)
-                    {
-                        fulfill(JSON.parse(body).data.length !== 0)
-                    })
-                }
-                catch (ex)
-                {
-                    reject(ex)
-                }
-            })
+                    fulfill(JSON.parse(body).data.length !== 0)
+                })
+            }
+            catch (ex)
+            {
+                reject(ex)
+            }
+        })
     }
 
 };
