@@ -1,0 +1,23 @@
+{
+  "name": "twitch-api",
+  "version": "0.0.1",
+  "description": "This package provides functions that are to be used with the Twitch API v5",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InFlamesForever/node-twitch-api.git"
+  },
+  "keywords": [
+    "twitch",
+    "api"
+  ],
+  "author": "InFlamesForever",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InFlamesForever/node-twitch-api/issues"
+  },
+  "homepage": "https://github.com/InFlamesForever/node-twitch-api#readme"
+}

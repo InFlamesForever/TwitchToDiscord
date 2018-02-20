@@ -57,3 +57,10 @@ typings/
 # dotenv environment variables file
 .env
 
+.idea/dbnavigator.xml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+node-twitch-api.iml
