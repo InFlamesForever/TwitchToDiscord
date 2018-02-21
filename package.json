@@ -1,6 +1,6 @@
 {
   "name": "twitch-api-lite",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "This package provides small lightweight functions that are to be used with the Twitch API v5",
   "main": "index.js",
   "scripts": {
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/InFlamesForever/node-twitch-api/issues"
   },
-  "homepage": "https://github.com/InFlamesForever/node-twitch-api#readme"
+  "homepage": "https://github.com/InFlamesForever/node-twitch-api#readme",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
 }
