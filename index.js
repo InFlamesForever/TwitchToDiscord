@@ -23,7 +23,15 @@ module.exports = {
                     method: 'GET'
                 }, function (url, res, body)
                 {
-                    fulfill(JSON.parse(body).data.length !== 0)
+                    let bodyJson = JSON.parse(body);
+                    if(bodyJson !== undefined && bodyJson.data !== undefined && bodyJson.data.length !== 0)
+                    {
+                        fulfill(true)
+                    }
+                    else
+                    {
+                        fulfill(false)
+                    }
                 })
             }
             catch (ex)
@@ -55,7 +63,15 @@ module.exports = {
                     method: 'GET'
                 }, function (url, res, body)
                 {
-                    fulfill(JSON.parse(body).data)
+                    let bodyJson = JSON.parse(body);
+                    if(bodyJson !== undefined && bodyJson.data !== undefined)
+                    {
+                        fulfill(bodyJson.data)
+                    }
+                    else
+                    {
+                        fulfill([])
+                    }
                 })
             }
             catch (ex)
@@ -87,7 +103,15 @@ module.exports = {
                     method: 'GET'
                 }, function (url, res, body)
                 {
-                    fulfill(JSON.parse(body).data)
+                    let bodyJson = JSON.parse(body);
+                    if(bodyJson !== undefined && bodyJson.data !== undefined)
+                    {
+                        fulfill(bodyJson.data)
+                    }
+                    else
+                    {
+                        fulfill([])
+                    }
                 })
             }
             catch (ex)

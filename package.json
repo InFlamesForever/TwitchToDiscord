@@ -1,6 +1,6 @@
 {
   "name": "twitch-api-lite",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "This package provides small lightweight functions that are to be used with the Twitch API v5",
   "main": "index.js",
   "scripts": {
