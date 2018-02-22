@@ -18,7 +18,9 @@ module.exports = {
                 request({
                     headers: {
                         'Client-ID': clientID
-                    }, uri: 'https://api.twitch.tv/helix/streams?user_login=' + streamerUsername, method: 'GET'
+                    },
+                    uri: 'https://api.twitch.tv/helix/streams?user_login=' + streamerUsername,
+                    method: 'GET'
                 }, function (url, res, body)
                 {
                     fulfill(JSON.parse(body).data.length !== 0)
@@ -48,7 +50,41 @@ module.exports = {
                 request({
                     headers: {
                         'Client-ID': clientID
-                    }, uri: 'https://api.twitch.tv/helix/streams?user_login=' + streamerUsername, method: 'GET'
+                    },
+                    uri: 'https://api.twitch.tv/helix/streams?user_login=' + streamerUsername,
+                    method: 'GET'
+                }, function (url, res, body)
+                {
+                    fulfill(JSON.parse(body).data)
+                })
+            }
+            catch (ex)
+            {
+                reject(ex)
+            }
+        })
+    },
+
+    /**
+     * Gets a games data by ID. Will return a JSON object of the game data if the game is found.
+     * An empty array is returned if the game is not found
+     *
+     * @param clientID your twitch app client id
+     * @param gameID the game ID
+     * @returns {Promise<JSON object>}
+     */
+    getGameByID(clientID, gameID)
+    {
+        return new Promise(function (fulfill, reject)
+        {
+            try
+            {
+                request({
+                    headers: {
+                        'Client-ID': clientID
+                    },
+                    uri: 'https://api.twitch.tv/helix/games?id=' + gameID,
+                    method: 'GET'
                 }, function (url, res, body)
                 {
                     fulfill(JSON.parse(body).data)
